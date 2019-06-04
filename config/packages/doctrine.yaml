@@ -1,0 +1,60 @@
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+
+        url: '%env(resolve:DATABASE_URL)%'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
+
+            User:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/User/Entity'
+                prefix: 'App\Model\User\Entity'
+                alias: User
+
+            Address:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Address/Entity'
+                prefix: 'App\Model\Address\Entity'
+                alias: Address
+
+            Delivery:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Delivery/Entity'
+                prefix: 'App\Model\Delivery\Entity'
+                alias: Delivery
+
+            Product:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Product/Entity'
+                prefix: 'App\Model\Product\Entity'
+                alias: Product
+
+            Order:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Order/Entity'
+                prefix: 'App\Model\Order\Entity'
+                alias: Order
+
+
+
